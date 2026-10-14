@@ -75,13 +75,8 @@ GODOT_BIN=/path/to/godot ./run_headless_server.sh
 - <kbd>F1</kbd> to add a random test item (debug builds, host only).
 - <kbd>F2</kbd> to print the local inventory (debug).
 
-## Contributing
-
-If you want to contribute to this project, please refer to our [Contributing Guidelines](CONTRIBUTING.md).
-
 ## Credits
 
-- 3D Godot Robot Platformer Character, by AGChow, licensed under CC0. See [`assets/characters/player/ATTRIBUTIONS.md`](assets/characters/player/ATTRIBUTIONS.md).
 - Item models and icons by Poly by Google and Quaternius. See [`assets/items/ATTRIBUTIONS.md`](assets/items/ATTRIBUTIONS.md).
 - Prototype environment textures by Kenney, licensed under CC0. See [`assets/environment/ATTRIBUTIONS.md`](assets/environment/ATTRIBUTIONS.md).
 
