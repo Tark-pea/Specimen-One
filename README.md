@@ -1,5 +1,6 @@
-# Godot 3D Multiplayer Template
+# Specimen One
 
+Using: Godot 3D Multiplayer Template
 Godot 4.7 starter project for building a 3D multiplayer game with player movement, sessions, inventory, equipment, chat, and dedicated-server support.
 
 > This template is also available on the [Godot Asset Library](https://godotengine.org/asset-library/asset/3377) and [Godot Asset Store](https://store.godotengine.org/asset/devmoreir4/godot-3d-multiplayer-template/).
