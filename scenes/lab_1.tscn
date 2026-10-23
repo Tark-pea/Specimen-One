@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://hhqjcai41qjw"]
-
-[ext_resource type="PackedScene" uid="uid://chr50knihehl0" path="res://assets/environment/Lab1.glb" id="1_tyrh6"]
-
-[node name="Lab1" unique_id=443603651 instance=ExtResource("1_tyrh6")]

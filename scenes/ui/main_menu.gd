@@ -6,14 +6,21 @@ extends Control
 signal done
 
 func _on_host_pressed() -> void:
-	Network.setup_server()
-	done.emit()
+	var result := Network.setup_server()
+	if result == OK:
+		title.text = "connecting..." # TODO: you get it
+		result = await Network.setup_client("127.0.0.1")
+		if result == OK:
+			done.emit()
+		else:
+			title.text = "ERROR :(" # TODO: actual error handling
+	else:
+		title.text = "ERROR >:(" # TODO: actual error handling
 
 func _on_join_pressed() -> void:
-	var peer := ENetMultiplayerPeer.new()
-	var result := peer.create_client(address_input.text, Network.PORT)
+	var address := address_input.text
+	var result := await Network.setup_client("127.0.0.1" if address == "" else address)
 	if result == OK:
-		multiplayer.multiplayer_peer = peer
 		done.emit()
 	else:
 		title.text = "ERROR >:(" # TODO: actual error handling

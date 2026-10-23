@@ -4,16 +4,23 @@ extends Node
 const PORT := 6769 # TODO: change
 const MAX_CLIENTS := 8
 
-func _ready() -> void:
-	if DisplayServer.get_name() == "headless":
-		setup_server()
-		print("Started dedicated server on port ", PORT)
-
-func setup_server():
+func setup_client(address: String) -> Error:
 	var peer := ENetMultiplayerPeer.new()
-	peer.create_server(PORT, MAX_CLIENTS)
+	var result := peer.create_client(address, Network.PORT)
+	if result != OK: return result
+	multiplayer.multiplayer_peer = peer
+	await multiplayer.connected_to_server
+	return OK
+
+func setup_server() -> Error:
+	var peer := ENetMultiplayerPeer.new()
+	var result := peer.create_server(PORT, MAX_CLIENTS)
+	if result != OK: return result
 	multiplayer.multiplayer_peer = peer
 	peer.peer_connected.connect(_on_peer_connect)
+	print("Started server on port ", PORT)
+	return OK
 
 func _on_peer_connect(id: int) -> void:
 	print("Peer connected (id %s)" % id)
+	get_tree().current_scene.load_level.rpc_id(id, "uid://cl2yhoq64cfkm")
