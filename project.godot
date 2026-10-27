@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Specimen"
 config/description="A friendslop puzzle game. [WIP]"
-config/tags=PackedStringArray("3d", "network")
+config/tags=PackedStringArray()
 run/main_scene="uid://iklyahlrb477"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
