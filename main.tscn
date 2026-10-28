@@ -3,28 +3,12 @@
 [ext_resource type="Script" uid="uid://br4cihivlefq6" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bx7mq8t8hjn7q" path="res://scenes/ui/main_menu.tscn" id="1_ig7tw"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_gg44g"]
-ground_color = Color(0.101960786, 1, 0.03529412, 1)
-
-[sub_resource type="Sky" id="Sky_w8h53"]
-sky_material = SubResource("PhysicalSkyMaterial_gg44g")
-
-[sub_resource type="Environment" id="Environment_awcxd"]
-background_mode = 2
-sky = SubResource("Sky_w8h53")
-
 [node name="Main" type="Node" unique_id=431050062 node_paths=PackedStringArray("game", "main_menu")]
 script = ExtResource("1_0xm2m")
 game = NodePath("Game")
 main_menu = NodePath("MainMenu")
 
 [node name="Game" type="Node3D" parent="." unique_id=1255682639]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Game" unique_id=471109739]
-environment = SubResource("Environment_awcxd")
-
-[node name="Sun" type="DirectionalLight3D" parent="Game" unique_id=1490068852]
-transform = Transform3D(1, 0, 0, 0, -0.91231585, 0.40948746, 0, -0.40948746, -0.91231585, 0, 0, 0)
 
 [node name="MainMenu" parent="." unique_id=1809417860 instance=ExtResource("1_ig7tw")]
 

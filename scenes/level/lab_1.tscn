@@ -2,6 +2,16 @@
 
 [ext_resource type="Script" uid="uid://d3ukoyqo0okl7" path="res://scenes/level/button_1.gd" id="1_8urbl"]
 
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_8urbl"]
+ground_color = Color(0.101960786, 1, 0.03529412, 1)
+
+[sub_resource type="Sky" id="Sky_w8h53"]
+sky_material = SubResource("PhysicalSkyMaterial_8urbl")
+
+[sub_resource type="Environment" id="Environment_n5qq4"]
+background_mode = 2
+sky = SubResource("Sky_w8h53")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_8urbl"]
 size = Vector3(2, 2, 2)
 
@@ -2096,6 +2106,12 @@ size = Vector3(0.99886733, 0.9999998, 0.99886733)
 
 [node name="Lab1" type="Node3D" unique_id=1499994497]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=867074282]
+environment = SubResource("Environment_n5qq4")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1785866418]
+transform = Transform3D(0.5209415, -0.3206625, -0.7910724, -1.6073729e-09, -0.9267566, 0.37566233, -0.8535924, -0.19569805, -0.48278594, 0, 0, 0)
 
 [node name="Geometry" type="StaticBody3D" parent="." unique_id=643991598]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)

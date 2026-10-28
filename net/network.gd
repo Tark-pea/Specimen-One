@@ -12,15 +12,17 @@ func setup_client(address: String) -> Error:
 	await multiplayer.connected_to_server
 	return OK
 
-func setup_server() -> Error:
+func setup_server(playing: bool = false) -> Error:
 	var peer := ENetMultiplayerPeer.new()
 	var result := peer.create_server(PORT, MAX_CLIENTS)
 	if result != OK: return result
 	multiplayer.multiplayer_peer = peer
 	peer.peer_connected.connect(_on_peer_connect)
-	print("Started server on port ", PORT)
+	Server.init()
+	if playing:
+		Server.add_player(peer.get_unique_id())
 	return OK
 
 func _on_peer_connect(id: int) -> void:
 	print("Peer connected (id %s)" % id)
-	get_tree().current_scene.load_level.rpc_id(id, "uid://cl2yhoq64cfkm")
+	Server.add_player(id)

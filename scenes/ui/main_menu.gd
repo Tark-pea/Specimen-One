@@ -6,14 +6,9 @@ extends Control
 signal done
 
 func _on_host_pressed() -> void:
-	var result := Network.setup_server()
+	var result := Network.setup_server(true)
 	if result == OK:
-		title.text = "connecting..." # TODO: you get it
-		result = await Network.setup_client("127.0.0.1")
-		if result == OK:
-			done.emit()
-		else:
-			title.text = "ERROR :(" # TODO: actual error handling
+		done.emit()
 	else:
 		title.text = "ERROR >:(" # TODO: actual error handling
 

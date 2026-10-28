@@ -14,7 +14,7 @@ func _ready() -> void:
 	if DisplayServer.get_name() == "headless":
 		Network.setup_server()
 
-@rpc
+@rpc("call_local")
 func load_level(uid: String) -> void:
 	if level: level.queue_free()
 	level = load(uid).instantiate()
